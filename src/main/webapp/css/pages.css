@@ -1,0 +1,69 @@
+
+.page {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    background: silver;
+    text-align: center;
+    bottom: 15px;
+    width: 640px;
+    height: 560px;
+    margin: 0 auto;
+    -webkit-box-shadow: 15px 15px 8px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    15px 15px 8px rgba(50, 50, 50, 0.75);
+    box-shadow:         15px 15px 8px rgba(50, 50, 50, 0.75);
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.worksPanel {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+
+}
+.listData {
+
+    align-self: stretch;
+    flex-grow: 3;
+    margin: 10px;
+}
+.editable_text {
+    width: 95%;
+}
+
+
+.buttonPanel {
+    width: 50%;
+    /*display: flex;*/
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+.b-button-save-delete {
+    width: 65%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center
+}
+.button {
+    cursor: pointer;
+    width: 75px;
+    height: 25px;
+    margin: 10px;
+}
+
+.button.add {
+
+}
+
+.button.save, .button.delete,  .button.up, .button.down {
+    height: 35px;
+}
