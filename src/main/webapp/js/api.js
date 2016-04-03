@@ -3,8 +3,16 @@
  */
 
 function Api () {
-    this.pathApi = "/api";
-    this.pathSetData = this.pathApi + "/setdata";
+    this.PATH_API = "/api";
+    this.PATH_SET_DATA = this.PATH_API + "/setdata";
+    this.PATH_GET_ALL_DATA = this.PATH_API +"/getAll";
+
+    $.ajaxSetup({
+        type: 'POST',
+        dataType: 'json',
+        contentType: 'application/json',
+        mimiType: 'application/json',
+    });
 }
 
 Api.prototype.setDataElement = function (text) {
@@ -12,11 +20,8 @@ Api.prototype.setDataElement = function (text) {
         "data": text
     };
     $.ajax({
-        url: this.pathSetData,
-        type: 'POST',
-        dataType: 'json',
-        contentType: 'application/json',
-           mimiType: 'application/json',
+        url: this.PATH_SET_DATA,
+
         data: $.toJSON(data),
         success: function (res) {
             this.listenerResponse(res);
@@ -25,10 +30,14 @@ Api.prototype.setDataElement = function (text) {
 };
 
 
-Api.prototype.getDataElements = function () {
-
+Api.prototype.getDataElements = function ( callback ) {
+    $.ajax ({
+        url: this.PATH_GET_ALL_DATA,
+        success: function (res) {
+            callback (res);
+        }
+    });
 };
-
 
 Api.prototype.deleteDataElement = function (id) {
 

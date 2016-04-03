@@ -8,6 +8,8 @@ function UI () {
     this.textField = $('#editable_text');
     this.listData = $('#listData');
 
+    this.serverApi.getDataElements( this.setAllInListData() );
+
     $('#bAdd').on ('click', function () {
         _self.listenerAddItem ();
     });
@@ -107,6 +109,12 @@ UI.prototype.returnToStartView = function () {
     this.textField.val ('');
 };
 
+//callback function
+UI.prototype.setAllInListData = function (res) {
+    alert(res);
+};
+
 window.onload = function () {
       new UI ();
 };
+

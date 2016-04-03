@@ -22,7 +22,7 @@ public class DataController {
     @Autowired
     private DataService dataService;
 
-    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
+    @RequestMapping(value = "/getAll", method = RequestMethod.POST)
     @ResponseBody
     public List<Data> getAllData () {                   //(String search) {
         return dataService.getAll();
