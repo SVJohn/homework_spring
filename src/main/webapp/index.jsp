@@ -26,9 +26,7 @@
 <div id ="page" class = "page">
     <div id = "worksPanel" class="worksPanel" >
         <select id="listData" class = "listData" size="35">
-            <option> CC</option>
-            <option> CC</option>
-            <option> CC</option>
+
         </select>
         <input type="text" id = "editable_text" class = "editable_text" >
 

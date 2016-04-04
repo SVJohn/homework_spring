@@ -21,7 +21,7 @@
         <spring.data>1.9.0.RELEASE</spring.data>
         <spring.security.version>4.0.1.RELEASE</spring.security.version>
 
-        <jackson.version>1.9.13 </jackson.version>
+        <jackson.version>2.7.3 </jackson.version>
     </properties>
 
     <dependencies>
@@ -92,13 +92,13 @@
             <version>${spring.data}</version>
         </dependency>
         <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-mapper-asl</artifactId>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-core-asl</artifactId>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
             <version>${jackson.version}</version>
         </dependency>
     </dependencies>

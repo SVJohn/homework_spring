@@ -4,10 +4,7 @@ import Homework.model.Data;
 import Homework.services.DataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,9 +19,9 @@ public class DataController {
     @Autowired
     private DataService dataService;
 
-    @RequestMapping(value = "/getAll", method = RequestMethod.POST)
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
     @ResponseBody
-    public List<Data> getAllData () {                   //(String search) {
+    public List<Data> getAllData() {                   //(String search) {
         return dataService.getAll();
     }
 
@@ -34,10 +31,18 @@ public class DataController {
         return dataService.addData(data);
     }
 
-    @RequestMapping(value = "{contextId}", method = RequestMethod.DELETE)
-    @ResponseBody
-    public String deleteCar(@RequestBody Long contextId) {
-        dataService.delete(contextId);
+    @RequestMapping(value = "/editdata", method = RequestMethod.POST)
+    public String editData  (@RequestBody Data data) {
+        dataService.editData(data);
+        return "edit";
+    }
+
+    @RequestMapping(value = "/delete{id}", method = RequestMethod.GET)
+    //@RequestMapping(value = "/delete{id}", method = RequestMethod.DELETE)
+    //@ResponseBody
+    public String deleteCar(@RequestParam (value="id", required = true) Long id) {          //@PathVariable("id") Long id)
+        // System.out.println (id);
+        dataService.delete(id);
         return "delete";
     }
 
