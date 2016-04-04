@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -23,6 +24,7 @@ public class DataController {
     @ResponseBody
     public List<Data> getAllData() {                   //(String search) {
         return dataService.getAll();
+
     }
 
     @RequestMapping(value = "/setdata", method = RequestMethod.POST)
@@ -40,11 +42,17 @@ public class DataController {
     @RequestMapping(value = "/delete{id}", method = RequestMethod.GET)
     //@RequestMapping(value = "/delete{id}", method = RequestMethod.DELETE)
     //@ResponseBody
-    public String deleteCar(@RequestParam (value="id", required = true) Long id) {          //@PathVariable("id") Long id)
+    public String deleteData(@RequestParam (value="id", required = true) Long id) {          //@PathVariable("id") Long id)
         // System.out.println (id);
         dataService.delete(id);
         return "delete";
     }
 
+    @RequestMapping(value = "/swap", method = RequestMethod.POST)
+    public String swapData (@RequestBody List <Data> data) {
+
+        dataService.swap (data);
+        return "swap";
+    }
 
 }

@@ -10,6 +10,8 @@ function Api () {
     this.PATH_SET_DATA = this.PATH_API + "/setdata";
     this.PATH_EDIT_DATA = this.PATH_API + "/editdata";
     this.PATH_DELETE_DATA = this.PATH_API+ "/delete";
+    PATH_SWAP_DATA = this.PATH_API +"/swap";
+
     this.PATH_GET_ALL_DATA = this.PATH_API +"/getAll";
 
     $.ajaxSetup({
@@ -79,10 +81,24 @@ Api.prototype.editDataElement = function (id, text) {
         }
     });
 };
+Api.swapDataElements = function (data) {
+    //var data = "id1="+id1+"&id2="+id2;
+    console.log ($.toJSON(data));
+    $.ajax ({
+        type: 'POST',
+        url: PATH_SWAP_DATA,
+        data: $.toJSON(data),
+        success: function (res) {
+            //console.log (['id1 = '+id1+' and id2 = '+id2, res]);
+            console.log (res);
+        }
+    });
+};
+
 
 Api.prototype.listenerResponse = function (res, callback) {
 
-    console.log ([typeof res, res]);
+    //console.log ([typeof res, res]);
     if (null == res && undefined === res ) return;
 
     if (typeof res[0] == "object") {
@@ -91,7 +107,6 @@ Api.prototype.listenerResponse = function (res, callback) {
 
             // console.log (res);
             callback(res[i].id, res[i].data);
-
 
         }
     } else {

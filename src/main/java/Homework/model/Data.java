@@ -19,6 +19,10 @@ public class Data {
     @Column (name = "data", nullable = false)
     private String data;
 
+//    @Column (name = "sorting")
+//    @GeneratedValue
+//    private long sorting;
+
     public Data() {    }
 
     public Data(String data) {
@@ -40,4 +44,13 @@ public class Data {
     public void setData(String data) {
         this.data = data;
     }
+
+//    public long getSorting () {
+//        return this.sorting;
+//    }
+//    public void setSorting (Long sorting) {
+//        this.sorting = sorting;
+//    }
+
+
 }

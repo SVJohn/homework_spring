@@ -42,5 +42,19 @@ public class DataServiceImpl implements DataService{
     @Override
     public List<Data> getAll() {
         return dataRepository.findAll();
+//        return this.getSortingAll();
+    }
+
+    @Transactional
+    @Override
+    public List<Data> getSortingAll() {
+        return dataRepository.getAllOrderByIdDesc();
+    }
+
+    @Transactional
+    @Override
+    public void swap (List <Data> data) {
+        this.editData(data.get(0));
+        this.editData(data.get(1));
     }
 }

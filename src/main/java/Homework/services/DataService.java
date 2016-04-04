@@ -9,8 +9,14 @@ import java.util.List;
  */
 public interface DataService {
     Data addData (Data data);
+
     void delete(long id);
 
     Data editData(Data data);
-    List<Data> getAll();
+
+    List <Data> getAll();
+    List <Data> getSortingAll();
+
+//    void swap (Long id1, Long id2);
+    void swap (List <Data> data);
 }
