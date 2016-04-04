@@ -2,8 +2,6 @@
 function UI () {
     var _self = this;
 
-    this.actions = null;
-
     this.serverApi = new Api ();
 
     this.butonPanel = $('#buttonsPanel');
@@ -50,7 +48,6 @@ UI.prototype.listenerSelectItem = function () {
 UI.prototype.listenerAddItem = function () {
     var $newText = this.textField.val();
     if ($newText !='') {
-        // this.setInEndListData(null, $newText);
         this.serverApi.setDataElement($newText, this.setInEndListData);
         this.returnToStartView();
     }
@@ -71,7 +68,13 @@ UI.prototype.listenerSaveChanges = function () {
         var item = $('#listData option:selected');
         var newText = this.textField.val();
         item.text(newText);
-        this.serverApi.editDataElement( item.val(), newText);
+
+        var data = {
+            "id": item.val(),
+            "data": newText
+        };
+
+        this.serverApi.editDataElement(data);
     }
     this.returnToStartView();
 };
@@ -97,8 +100,7 @@ UI.prototype.listenerMoveUpItem = function () {
         $('#listData option:nth-child('+indexUpElement+')').attr ("selected", "selected");
         return;
     }
-    //
-    //console.log ($('#listData option:nth-child('+indexUpElement+')').val(), "nuhj" );
+
     this.returnToStartView();
 };
 
@@ -117,7 +119,6 @@ UI.prototype.listenerMoveDownItem = function () {
 
         $('#listData option:nth-child('+indexDownElement+')').val (id1);
         $('#listData option:nth-child('+indexDownElement+')').after(htmlSelectedElement);
-
 
         //this.bDel.trigger('click');
         UI.deleteItem ($('#listData :selected') );
@@ -157,7 +158,7 @@ UI.deleteItem = function (item) {
 };
 
 UI.swapDataElements = function ( index1, index2) {
-    console.log ([index1, index2]);
+    // console.log ([index1, index2]);
     var elm1 = $('#listData option:nth-child(' + index1 + ')');
     var elm2 = $('#listData option:nth-child(' + index2 + ')');
     var data = Array ();

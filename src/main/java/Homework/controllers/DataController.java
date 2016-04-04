@@ -41,7 +41,6 @@ public class DataController {
 
     @RequestMapping(value = "/delete{id}", method = RequestMethod.GET)
     //@RequestMapping(value = "/delete{id}", method = RequestMethod.DELETE)
-    //@ResponseBody
     public String deleteData(@RequestParam (value="id", required = true) Long id) {          //@PathVariable("id") Long id)
         // System.out.println (id);
         dataService.delete(id);
