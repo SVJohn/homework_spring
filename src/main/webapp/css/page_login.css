@@ -4,6 +4,27 @@ body {
     justify-content: center;
     align-items: center;
 }
+.box {
+    -webkit-box-shadow: 15px 15px 8px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    15px 15px 8px rgba(50, 50, 50, 0.75);
+    box-shadow:         15px 15px 8px rgba(50, 50, 50, 0.75);
+
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+    background: silver;
+    text-align: center;
+}
+.b-error-message {
+    width: 350px;
+    margin: 10px 10px 25px 10px;
+}
+.b-error-message font{
+    margin: 15px;
+    padding: 15px;
+}
 
 .b-login-page {
     width: 250px;
@@ -14,17 +35,6 @@ body {
     justify-content: flex-start;
     align-items: center;
 
-    background: silver;
-    text-align: center;
-    bottom: 15px;
-
-    -webkit-box-shadow: 15px 15px 8px rgba(50, 50, 50, 0.75);
-    -moz-box-shadow:    15px 15px 8px rgba(50, 50, 50, 0.75);
-    box-shadow:         15px 15px 8px rgba(50, 50, 50, 0.75);
-
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
 }
 .b-logo {
 

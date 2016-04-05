@@ -51,5 +51,6 @@
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
 
-    <!--<import resource="security.xml" />-->
+    <!--import Security bean-->
+    <import resource="security.xml" />
 </beans>

@@ -18,37 +18,42 @@
 </head>
 <body>
 
-    <div id = "b-login-page" class = "b-login-page">
+<div id="b-error-message" class="b-error-message box">
+    <c:if test="${not empty param.error}">
+        <font color="red"> <h>Login errors </h>
+            : ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message} </font>
+    </c:if>
+</div>
+
+    <div id = "b-login-page" class = "b-login-page box">
         <%--<div id="b-logo" class = "b-logo">--%>
             <%--<a href="<c:url value="/" />">--%>
                 <%--Data:--%>
             <%--</a>--%>
         <%--</div>--%>
 
-        <c:if test="${not empty param.error}">
-            <font color="red"> <h>Login errors </h>
-                : ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message} </font>
-        </c:if>
+    <%--в spring security version 3: value="/j_spring_security_check", j_ перед username и password в полях--%>
 
-        <form method="POST" action="<c:url value="/j_spring_security_check" />">
+        <form method="post" action="<c:url value="/login" />">
 
         <div class="b-input b-login">
             <div align="right">Login: </div>
-            <div><input type="text" name="j_username" ></div>
+            <div><input type="text" id = "username" name="username" placeholder="Username"></div>
         </div>
         <div class="b-input b-pass">
             <div align="right">Password:</div>
-            <div><input type="password" name="j_password" ></div>
+            <div><input type="password" id="password" name="password" placeholder="Password"></div>
         </div>
         <div class = "b-input b-radio" >
             <div >remember me </div>
-            <div><input type="checkbox" name="_spring_security_remember_me" ></div>
+            <div><input type="checkbox" id ="_spring_security_remember_me" name="_spring_security_remember_me" ></div>
         </div>
         <div class = "b-input b-button">
             <input type="reset" value="Reset" class = "button">
             <input type="submit" value="Login" class = "button">
         </div>
+        </form>
     </div>
-</form>
+
 </body>
 </html>

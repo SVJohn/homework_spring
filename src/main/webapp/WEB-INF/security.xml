@@ -6,20 +6,23 @@ http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
 http://www.springframework.org/schema/security
 http://www.springframework.org/schema/security/spring-security-4.0.xsd">
 
-<http auto-config="true">
+<http disable-url-rewriting="false">
 
     <intercept-url pattern="/login.jsp*" access="permitAll"/>
     <intercept-url pattern="/error403.jsp*" access="permitAll"/>
+    <intercept-url pattern="/css/*" access="permitAll"/>
     <intercept-url pattern="/**" access="hasRole('USER')" />
 
+    <!--<http-basic />-->
     <form-login login-page="/login.jsp" default-target-url="/index.jsp" always-use-default-target="true"
                 authentication-failure-url="/login.jsp?error=true" />
-
-    <logout logout-url="/logout" logout-success-url="/index.jsp" />
-
+    <logout logout-url="/logout" logout-success-url="/" />
     <access-denied-handler error-page="/error403.jsp" />
+
+    <headers disabled = "true" />
     <csrf disabled="true"/>
     <remember-me />
+
 </http>
 
 <authentication-manager>

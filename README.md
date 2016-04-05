@@ -34,7 +34,7 @@
 
 		Core			(+)
 
-		Security		(неработает)
+		Security		(+)
 
 		Data JPA		(+) 
 
