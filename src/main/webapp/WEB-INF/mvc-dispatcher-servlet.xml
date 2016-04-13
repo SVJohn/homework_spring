@@ -10,4 +10,25 @@
     <mvc:resources mapping="/**" location="/"/>
     <mvc:annotation-driven/>
 
+
+    <!-- i18n bean-->
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**" />
+            <ref bean="localChangeInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <bean id = "localResolver"
+          class="org.springframework.web.servlet.i18n.SessionLocaleResolver" >
+        <property name="defaultLocale" value="en" />
+    </bean>
+
+
+    <bean id="localChangeInterceptor"
+          class = "org.springframework.web.servlet.i18n.LocaleChangeInterceptor" >
+        <property name="paramName" value="language" />
+    </bean>
+
 </beans>

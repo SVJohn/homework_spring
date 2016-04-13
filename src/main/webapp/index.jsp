@@ -8,11 +8,13 @@
 <%@page contentType="text/html; charset=UTF-8" language="java" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Title</title>
+    <title><spring:message code="site.title"/></title>
     <link href="<c:url value="/css/pages.css" />" rel="stylesheet">
     <script type="text/javascript" src=" <c:url value='/js/jquery-1.12.2.js'/>"></script>
     <script type="text/javascript" src=" <c:url value='/js/jquery.json-2.4.js'/>"></script>

@@ -14,6 +14,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf8">
+    <title><spring:message code="site.title"/></title>
     <link href="<c:url value="/css/page_login.css" />" rel="stylesheet">
 </head>
 <body>
@@ -35,22 +36,27 @@
     <%--в spring security version 3: value="/j_spring_security_check", j_ перед username и password в полях--%>
 
         <form method="post" action="<c:url value="/login" />">
+            <spring:message code="login" var="login"/>
+            <spring:message code="password" var="password"/>
+            <spring:message code="button.reset" var="button_reset"/>
+            <spring:message code="button.sing_in" var="button_sing_in"/>
 
         <div class="b-input b-login">
-            <div align="right">Login: </div>
-            <div><input type="text" id = "username" name="username" placeholder="Username"></div>
+            <div align="right">${login}: </div>
+            <div><input type="text" id = "username" name="username" placeholder="${login}"></div>
         </div>
         <div class="b-input b-pass">
-            <div align="right">Password:</div>
-            <div><input type="password" id="password" name="password" placeholder="Password"></div>
+
+            <div align="right">${password}:</div>
+            <div><input type="password" id="password" name="password" placeholder="${password}"></div>
         </div>
         <div class = "b-input b-radio" >
             <div >remember me </div>
             <div><input type="checkbox" id ="_spring_security_remember_me" name="_spring_security_remember_me" ></div>
         </div>
         <div class = "b-input b-button">
-            <input type="reset" value="Reset" class = "button">
-            <input type="submit" value="Login" class = "button">
+            <input type="reset" value="${button_reset}" class = "button">
+            <input type="submit" value="${button_sing_in}" class = "button">
         </div>
         </form>
     </div>
