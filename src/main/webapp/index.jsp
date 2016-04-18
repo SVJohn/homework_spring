@@ -27,6 +27,10 @@
 <div id = "b-logout" class="b-logout">
     <a href = "/logout" title="Log Out"> &times;</a>
 </div>
+<div id = "b-language" class="b-language">
+    <a href = "?language=en" title="English"> en </a>
+    <a href = "?language=ua" title="Ukrainian"> ua </a>
+</div>
 <div id ="page" class = "page">
     <div id = "worksPanel" class="worksPanel" >
         <select id="listData" class = "listData" size="35">

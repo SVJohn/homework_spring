@@ -1,4 +1,6 @@
-
+a :hover{
+    color: red;
+}
 .page {
     display: flex;
     flex-direction: row;
@@ -31,8 +33,17 @@
 
     text-align: center;
 }
+.b-language  {
+    position: absolute;
+    right: 70px;
+    top: 10px;
+    font-family: georgia;
+    font-weight: normal;
 
-.b-logout a {
+    text-align: center;
+}
+
+.b-logout a, .b-language a {
     margin: 5px;
     text-decoration: none;
     color: black;
